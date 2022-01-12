@@ -1,6 +1,6 @@
 import { ThemeProvider } from "@emotion/react";
 import { createTheme } from "@mui/material";
-import { createContext } from "react";
+import { createContext, useState } from "react";
 
 export const theme = createTheme({
   palette: {
@@ -25,10 +25,22 @@ export const theme = createTheme({
 export const AppContext = createContext("");
 
 const Layout = (props) => {
+  const [menu, setMenu] = useState(false);
+
+  const handleClickAway = () => {
+    setMenu(!menu);
+  };
+
+  const handleClick = () => {
+    setMenu((prev) => !prev);
+  };
+
   return (
     <div>
       <ThemeProvider theme={theme}>
-        <AppContext.Provider value={{}}>
+        <AppContext.Provider
+          value={{ menu, setMenu, handleClickAway, handleClick }}
+        >
           <main>{props.children}</main>
         </AppContext.Provider>
       </ThemeProvider>

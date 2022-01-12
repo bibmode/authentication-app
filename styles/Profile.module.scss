@@ -1,0 +1,135 @@
+.wrapper {
+  margin-block: 1.6rem;
+  letter-spacing: -0.035em;
+  text-align: center;
+  overflow-x: hidden;
+
+  h1 {
+    font-weight: 300;
+    font-size: 2.4rem;
+    line-height: 3.3rem;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    font-weight: 300;
+    font-size: 1.4rem;
+    line-height: 1.9rem;
+  }
+
+  hr {
+    margin-inline: -3rem;
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+
+  &Logo {
+    width: 14rem;
+    height: auto;
+  }
+
+  &Profile {
+    width: 3.2rem;
+    height: 3.2rem;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 0.8rem;
+    }
+  }
+}
+
+.main {
+  &TopBar {
+    display: grid;
+    grid-template-columns: 1fr max-content;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "subheader button"
+      "description button";
+
+    text-align: left;
+    margin-block: 3rem;
+
+    h2 {
+      grid-area: subheader;
+      font-size: 2.4rem;
+      line-height: 3.3rem;
+      font-weight: 400;
+      margin-bottom: 0.6rem;
+    }
+
+    p {
+      grid-area: description;
+      font-weight: 500;
+      font-size: 1.3rem;
+      line-height: 1.8rem;
+      max-width: 18rem;
+
+      color: #828282;
+    }
+
+    button {
+      grid-area: button;
+      width: 9.53rem;
+      align-self: center;
+      border-radius: 1.2rem;
+      font-weight: 500;
+      font-size: 1.6rem;
+      line-height: 2.2rem;
+      text-transform: none;
+
+      color: #828282;
+      border-color: #828282;
+
+      &:focus {
+        border-color: #828282;
+      }
+    }
+  }
+
+  &Item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 1.4rem;
+    min-height: 9.1rem;
+
+    h3 {
+      color: #bdbdbd;
+      font-size: 1.3rem;
+      font-weight: 400;
+      text-transform: uppercase;
+    }
+
+    p {
+      color: #333333;
+      font-size: 1.6rem;
+      line-height: 2.2rem;
+      font-weight: 500;
+    }
+
+    &Picture {
+      width: 7.2rem;
+      height: 7.2rem;
+      margin-right: 1rem;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 0.8rem;
+    }
+  }
+}

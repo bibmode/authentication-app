@@ -17,11 +17,6 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import Link from "next/link";
 
-const LoginContainer = styled(Container)(({ theme }) => ({
-  paddingLeft: "18px !important",
-  paddingRight: "18px !important",
-}));
-
 const SubmitButton = styled(Button)(({ theme }) => ({
   fontSize: "16px",
   lineHeight: "22px",
@@ -36,7 +31,7 @@ const Input = styled(TextField)(({ theme }) => ({
 const LoginBox = () => {
   return (
     <div className={styles.wrapper}>
-      <LoginContainer>
+      <Container>
         <img src="devchallenges.svg" alt="logo" />
         <h1>Join thousands of learners from around the world</h1>
         <p>
@@ -56,7 +51,7 @@ const LoginBox = () => {
                 </InputAdornment>
               ),
             }}
-            sx={{ mb: 2, mt: 3 }}
+            sx={{ mb: 2, mt: 3.7 }}
           />
           <Input
             id="password"
@@ -106,7 +101,7 @@ const LoginBox = () => {
         <h2>
           Adready a member? <Link href="/">Login</Link>
         </h2>
-      </LoginContainer>
+      </Container>
     </div>
   );
 };
