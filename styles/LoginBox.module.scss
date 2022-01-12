@@ -1,0 +1,40 @@
+.wrapper {
+  margin-block: 1.6rem;
+
+  img {
+    width: 14rem;
+    height: auto;
+    margin-bottom: 1.4rem;
+  }
+
+  h1 {
+    font-weight: 600;
+    font-size: 1.8rem;
+    line-height: 2.5rem;
+  }
+
+  p {
+    font-size: 1.6rem;
+    line-height: 2.2rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+    line-height: 1.9rem;
+    letter-spacing: -0.035em;
+    color: #828282;
+    font-weight: 400;
+    text-align: center;
+    margin-block: 3.1rem;
+
+    a {
+      color: #2f80ed;
+    }
+  }
+}
+
+.icons {
+  display: flex;
+  justify-content: space-around;
+  padding-inline: 5rem;
+}
