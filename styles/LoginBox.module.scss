@@ -1,5 +1,12 @@
 .wrapper {
   margin-block: 1.6rem;
+  max-width: 47.3rem;
+
+  @media screen and (min-width: 473px) {
+    padding-block: 4.3rem;
+    border: 1px solid #bdbdbd;
+    border-radius: 2.4rem;
+  }
 
   img {
     width: 14rem;
@@ -12,11 +19,13 @@
     font-size: 1.8rem;
     line-height: 2.5rem;
     margin-block: 2rem 1.8rem;
+    max-width: 33.9rem;
   }
 
   p {
     font-size: 1.6rem;
     line-height: 2.2rem;
+    max-width: 33.9rem;
   }
 
   h2 {

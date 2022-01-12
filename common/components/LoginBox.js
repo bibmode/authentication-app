@@ -31,7 +31,7 @@ const Input = styled(TextField)(({ theme }) => ({
 const LoginBox = () => {
   return (
     <div className={styles.wrapper}>
-      <Container>
+      <Container maxWidth="sm">
         <img src="devchallenges.svg" alt="logo" />
         <h1>Join thousands of learners from around the world</h1>
         <p>
