@@ -31,41 +31,44 @@ const Profile = () => {
         <p>Basic info, like your name and photo</p>
 
         <div className={styles.main}>
-          <div className={styles.mainTopBar}>
-            <h2>Profile</h2>
-            <p>Some info may be visible to other people</p>
-            <Button variant="outlined">Edit</Button>
-          </div>
-
-          <div className={styles.mainItem}>
-            <h3>photo</h3>
-            <div className={styles.mainItemPicture}>
-              <img src="user.jpg" alt="user profile" />
+          <div className={styles.mainWrapper}>
+            <div className={styles.mainTopBar}>
+              <h2>Profile</h2>
+              <p>Some info may be visible to other people</p>
+              <Button variant="outlined">Edit</Button>
             </div>
-          </div>
-          <Divider />
+            <Divider />
 
-          <div className={styles.mainItem}>
-            <h3>name</h3>
-            <p>Genevieve Navales</p>
-          </div>
-          <Divider />
+            <div className={styles.mainItem}>
+              <h3>photo</h3>
+              <div className={styles.mainItemPicture}>
+                <img src="user.jpg" alt="user profile" />
+              </div>
+            </div>
+            <Divider />
 
-          <div className={styles.mainItem}>
-            <h3>bio</h3>
-            <p>I am a software developer...</p>
-          </div>
-          <Divider />
+            <div className={styles.mainItem}>
+              <h3>name</h3>
+              <p>Genevieve Navales</p>
+            </div>
+            <Divider />
 
-          <div className={styles.mainItem}>
-            <h3>email</h3>
-            <p>xanthe.neal@gmail.com</p>
-          </div>
-          <Divider />
+            <div className={styles.mainItem}>
+              <h3>bio</h3>
+              <p>I am a software developer...</p>
+            </div>
+            <Divider />
 
-          <div className={styles.mainItem}>
-            <h3>password</h3>
-            <p>*******</p>
+            <div className={styles.mainItem}>
+              <h3>email</h3>
+              <p>xanthe.neal@gmail.com</p>
+            </div>
+            <Divider />
+
+            <div className={styles.mainItem}>
+              <h3>password</h3>
+              <p>*******</p>
+            </div>
           </div>
         </div>
       </Container>
