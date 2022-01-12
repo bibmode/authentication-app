@@ -26,6 +26,7 @@ export const AppContext = createContext("");
 
 const Layout = (props) => {
   const [menu, setMenu] = useState(false);
+  const [toggleForm, setToggleForm] = useState(true); //true for register false for login
 
   const handleClickAway = () => {
     setMenu(!menu);
@@ -39,7 +40,14 @@ const Layout = (props) => {
     <div>
       <ThemeProvider theme={theme}>
         <AppContext.Provider
-          value={{ menu, setMenu, handleClickAway, handleClick }}
+          value={{
+            menu,
+            setMenu,
+            handleClickAway,
+            handleClick,
+            toggleForm,
+            setToggleForm,
+          }}
         >
           <main>{props.children}</main>
         </AppContext.Provider>

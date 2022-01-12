@@ -1,4 +1,5 @@
 import styles from "../../styles/LoginBox.module.scss";
+import { AppContext } from "./Layout";
 
 import {
   Button,
@@ -16,6 +17,7 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import Link from "next/link";
+import { useContext } from "react";
 
 const SubmitButton = styled(Button)(({ theme }) => ({
   fontSize: "16px",
@@ -29,15 +31,23 @@ const Input = styled(TextField)(({ theme }) => ({
 }));
 
 const LoginBox = () => {
+  const { toggleForm, setToggleForm } = useContext(AppContext);
+
   return (
     <div className={styles.wrapper}>
       <Container maxWidth="sm">
         <img src="devchallenges.svg" alt="logo" />
-        <h1>Join thousands of learners from around the world</h1>
-        <p>
-          Master web development by making real-life projects. There are
-          multiple paths for you to choose
-        </p>
+        <h1>
+          {toggleForm
+            ? "Join thousands of learners from around the world"
+            : "Login"}
+        </h1>
+        {toggleForm && (
+          <p>
+            Master web development by making real-life projects. There are
+            multiple paths for you to choose
+          </p>
+        )}
         <form>
           <Input
             id="email"
@@ -74,7 +84,7 @@ const LoginBox = () => {
             fullWidth
             sx={{ textTransform: "none" }}
           >
-            Start coding now
+            {toggleForm ? "Start coding now" : "Login"}
           </SubmitButton>
         </form>
 
@@ -98,9 +108,16 @@ const LoginBox = () => {
           </IconButton>
         </div>
 
-        <h2>
-          Adready a member? <Link href="/">Login</Link>
-        </h2>
+        {toggleForm ? (
+          <h2>
+            Already a member? <a onClick={() => setToggleForm(false)}>Login</a>
+          </h2>
+        ) : (
+          <h2>
+            {`${"Don't have an account yet?"}`}{" "}
+            <a onClick={() => setToggleForm(true)}>Register</a>
+          </h2>
+        )}
       </Container>
     </div>
   );
