@@ -21,6 +21,7 @@ import Link from "next/link";
 import { useContext } from "react";
 import { useFormik } from "formik";
 import * as yup from "yup";
+import { signIn, getSession } from "next-auth/react";
 
 //styling material ui
 const SubmitButton = styled(Button)(({ theme }) => ({
@@ -47,7 +48,8 @@ const validationSchema = yup.object({
 });
 
 const LoginBox = () => {
-  const { toggleForm, setToggleForm } = useContext(AppContext);
+  const { toggleForm, setToggleForm, signUpEmail, redirectUser } =
+    useContext(AppContext);
 
   const clearValues = () => {
     formik.values.email = "";
@@ -61,22 +63,23 @@ const LoginBox = () => {
     },
     validationSchema: validationSchema,
     onSubmit: async (values) => {
-      console.log(process.env.MONGO_URI);
-      const res = await fetch("/api/auth/signup", {
-        method: "POST",
-        body: JSON.stringify({
+      //register
+      if (toggleForm) signUpEmail(values.email, values.password);
+
+      //login
+      if (!toggleForm) {
+        const status = await signIn("credentials", {
+          redirect: false,
           email: values.email,
           password: values.password,
-        }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+        });
 
-      const data = await res.json();
-      console.log(data);
+        if (status.url) redirectUser("profile");
 
-      // clearValues();
+        console.log(status);
+      }
+
+      clearValues();
     },
   });
 
