@@ -1,11 +1,15 @@
 import { Button, ClickAwayListener, Container, Divider } from "@mui/material";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import styles from "../../styles/Profile.module.scss";
 import { AppContext } from "./Layout";
 import Menu from "./Menu";
 
-const Profile = ({ session }) => {
+const Profile = ({ session, user }) => {
   const { menu, handleClick } = useContext(AppContext);
+
+  useEffect(() => {
+    console.log(user);
+  }, []);
 
   return (
     <div className={styles.wrapper}>
@@ -49,25 +53,25 @@ const Profile = ({ session }) => {
 
             <div className={styles.mainItem}>
               <h3>name</h3>
-              <p>Genevieve Navales</p>
+              <p>{user.name}</p>
             </div>
             <Divider />
 
             <div className={styles.mainItem}>
               <h3>bio</h3>
-              <p>I am a software developer...</p>
+              <p>{user.bio}</p>
             </div>
             <Divider />
 
             <div className={styles.mainItem}>
               <h3>email</h3>
-              <p>xanthe.neal@gmail.com</p>
+              <p>{user.email}</p>
             </div>
             <Divider />
 
             <div className={styles.mainItem}>
               <h3>password</h3>
-              <p>*******</p>
+              <p>{user.password}</p>
             </div>
           </div>
         </div>
