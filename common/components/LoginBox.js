@@ -61,7 +61,7 @@ const LoginBox = () => {
     },
     validationSchema: validationSchema,
     onSubmit: async (values) => {
-      console.log(values);
+      console.log(process.env.MONGO_URI);
       const res = await fetch("/api/auth/signup", {
         method: "POST",
         body: JSON.stringify({

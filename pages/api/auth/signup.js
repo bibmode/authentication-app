@@ -9,7 +9,7 @@ const handler = async (req, res) => {
 
     //Connect with database
     const client = await MongoClient.connect(
-      "mongodb+srv://genevieve:NonZcDznxG4Dyors@cluster0.mxzpt.mongodb.net/authentication-app?retryWrites=true&w=majority",
+      process.env.NEXT_PUBLIC_MONGO_URI,
       {
         useNewUrlParser: true,
         useUnifiedTopology: true,
