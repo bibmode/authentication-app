@@ -4,7 +4,7 @@ import styles from "../../styles/Profile.module.scss";
 import { AppContext } from "./Layout";
 import Menu from "./Menu";
 
-const Profile = () => {
+const Profile = ({ session }) => {
   const { menu, handleClick } = useContext(AppContext);
 
   return (
@@ -24,7 +24,7 @@ const Profile = () => {
           >
             <img src="user.jpg" alt="user profile" />
           </button>
-          {menu && <Menu />}
+          {menu && <Menu session={session} />}
         </div>
 
         <h1>Personal info</h1>

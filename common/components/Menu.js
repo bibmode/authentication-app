@@ -12,11 +12,22 @@ import {
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import LogoutIcon from "@mui/icons-material/Logout";
 import styles from "../../styles/Menu.module.scss";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AppContext } from "./Layout";
+import { signOut, useSession } from "next-auth/react";
 
 const Menu = () => {
   const { setMenu, menu, handleClickAway } = useContext(AppContext);
+
+  const { data: session, status } = useSession();
+
+  useEffect(() => {
+    console.log(status, session);
+  }, []);
+
+  const signOutUser = () => {
+    signOut({ callbackUrl: "/" });
+  };
 
   return (
     <ClickAwayListener onClickAway={handleClickAway}>
@@ -37,7 +48,7 @@ const Menu = () => {
             </ListItem>
             <Divider />
             <ListItem disablePadding>
-              <ListItemButton>
+              <ListItemButton onClick={signOutUser}>
                 <ListItemIcon>
                   <LogoutIcon />
                 </ListItemIcon>
